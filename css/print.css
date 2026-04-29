@@ -1,0 +1,69 @@
+@media print {
+    /* Force desktop grid */
+    .col-lg-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        float: left;
+    }
+
+    /* Hide nav, it's noise on paper */
+    #mainNav {
+        display: none !important;
+    }
+
+    /* Avoid splitting cards across pages */
+    .card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Avoid orphaned section headings */
+    h1, h2 {
+        page-break-after: avoid;
+    }
+
+    /* Make sure dark backgrounds print */
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Trim top padding the navbar leaves behind */
+    body {
+        padding-top: 0 !important;
+    }
+
+    /* Tighten the header so page 1 isn't just a green band */
+    header.bg-primary {
+        padding: 1.5rem 0 !important;
+    }
+    header.bg-primary h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Bring portfolio section right under the header */
+    #portfolio {
+        padding-top: 1rem !important;
+    }
+
+    /* Don't avoid breaks after the top-level section h1 — let cards flow up */
+    section > .container > h1 {
+        page-break-after: auto;
+    }
+
+    /* But still avoid orphaning sub-headings (card titles) */
+    .card-title {
+        page-break-after: avoid;
+    }
+
+    /* Remove the <br/> after section h1s on print — they create wasted vertical space */
+    section > .container > h1 + br {
+        display: none;
+    }
+
+    /* Trim card body padding on print */
+    .card-body {
+        padding: 0.75rem !important;
+    }
+}
